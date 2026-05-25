@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secret Surprise 💜</title>
+
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+button {
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    background: #ff7eb3;
+    color: white;
+    cursor: pointer;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.4s;
+}
+
+.popup.active {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.quote {
+    display: none;
+    margin-top: 15px;
+}
+
+/* butterflies */
+.butterfly {
+    position: absolute;
+    font-size: 24px;
+    animation: fly 10s linear infinite;
+}
+
+@keyframes fly {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+</style>
+</head>
+
+<body>
+
+<h2>Please press the button Saloni ji 💜</h2>
+<button onclick="openPopup()">Open Surprise</button>
+
+<!-- ✅ MUSIC ADDED HERE -->
+<audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<div class="popup" id="popup">
+    <h2>Hey, you are so gorgeous 💜</h2>
+
+    <p style="cursor:pointer; color:#ff4f9a;" onclick="showQuote()">
+        isko bhi open kro
+    </p>
+
+    <div class="quote" id="quote">
+        "Your smile is my favorite view—it’s the kind of magic that makes everything feel right."
+    </div>
+
+    <br>
+    <button onclick="closePopup()">Close</button>
+</div>
+
+<div class="butterfly" style="left:10%;">🦋</div>
+<div class="butterfly" style="left:40%; animation-delay:2s;">🦋</div>
+<div class="butterfly" style="left:70%; animation-delay:4s;">🦋</div>
+
+<script>
+function openPopup() {
+    document.getElementById("popup").classList.add("active");
+
+    // ✅ MUSIC PLAY HERE
+    let music = document.getElementById("bgMusic");
+    music.volume = 0.3;
+    music.play();
+}
+
+function closePopup() {
+    document.getElementById("popup").classList.remove("active");
+}
+
+function showQuote() {
+    document.getElementById("quote").style.display = "block";
+}
+</script>
+
+</body>
+</html>
