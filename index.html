@@ -93,12 +93,17 @@ button {
 
 <script>
 function openPopup() {
+
     document.getElementById("popup").classList.add("active");
 
-    // ✅ MUSIC PLAY HERE
     let music = document.getElementById("bgMusic");
-    music.volume = 0.3;
-    music.play();
+
+    music.volume = 0.5;
+    music.currentTime = 0;
+
+    music.play().catch((err) => {
+        console.log("Music error:", err);
+    });
 }
 
 function closePopup() {
